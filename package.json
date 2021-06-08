@@ -6,8 +6,7 @@
   "author": "RobMayer <5171361+RobMayer@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
-    "build": "babel src -d dst",
-    "prepack": "babel src -d dst"
+    "build": "babel src -d dst"
   },
   "files": [
     "dst"
