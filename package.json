@@ -1,8 +1,27 @@
 {
   "name": "@trh/binder-jsx-runtime",
-  "version": "0.0.1",
-  "main": "index.js",
+  "version": "1.0.0",
+  "main": "dst/index.js",
   "repository": "https://github.com/RobMayer/binder-jsx-runtime.git",
   "author": "RobMayer <5171361+RobMayer@users.noreply.github.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src -d dst",
+    "prepack": "babel src -d dst"
+  },
+  "files": [
+    "dst"
+  ],
+  "exports": {
+    ".": "./dst/index.js",
+    "./": "./dst/"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.14.3",
+    "@babel/core": "^7.14.3",
+    "@babel/eslint-parser": "^7.14.4",
+    "@babel/eslint-plugin": "^7.13.16",
+    "@babel/preset-env": "^7.14.4",
+    "eslint": "^7.28.0"
+  }
 }
