@@ -1,7 +1,7 @@
 {
   "name": "@trh/binder-jsx-runtime",
   "version": "0.0.1",
-  "main": "build/index.js",
+  "main": "index.js",
   "repository": "https://github.com/RobMayer/binder-jsx-runtime.git",
   "author": "RobMayer <5171361+RobMayer@users.noreply.github.com>",
   "license": "MIT"
