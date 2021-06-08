@@ -37,18 +37,25 @@ var render = function render(element, container) {
       render(child, container);
     });
   } else {
-    var _element$props;
-
-    var dom = element.type === TEXTNODE ? container.ownerDocument.createTextNode("") : container.ownerDocument.createElement(element.type);
-    Object.keys((_element$props = element.props) !== null && _element$props !== void 0 ? _element$props : {}).filter(isProperty).forEach(function (name) {
-      dom[name] = element.props[name];
-    });
-    element.props.children.forEach(function (child) {
-      if (child) {
-        render(child, dom);
-      }
-    });
-    container.appendChild(dom);
+    if (Array.isArray(element)) {
+      // Fragment
+      element.forEach(function (child) {
+        if (child) {
+          render(child, container);
+        }
+      });
+    } else {
+      var dom = element.type === TEXTNODE ? container.ownerDocument.createTextNode("") : container.ownerDocument.createElement(element.type);
+      Object.keys(element.props).filter(isProperty).forEach(function (name) {
+        dom[name] = element.props[name];
+      });
+      element.props.children.forEach(function (child) {
+        if (child) {
+          render(child, dom);
+        }
+      });
+      container.appendChild(dom);
+    }
   }
 };
 
